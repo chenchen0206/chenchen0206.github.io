@@ -9,17 +9,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>微信小程序的学习 | Chen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##1.小程序的基本配置参考官方文档，（国人设计的，真心好用，通俗易懂） ##2.小程序的双线程模型 ####小程序的宿主环境是微信客户端，1.宿主环境为了执行小程序的各种文件：wxml文件，wxss文件，js文件。2.提供了小程序的双线程模型 ####双线程模型1.WXML模块和WXSS样式运行于渲染层，渲染层使用WebView线程渲染(一个程序有多个页面，会使用多个webview的线程)2.J">
+  <meta name="description" content="#微信小程序的学习">
+<meta name="keywords" content="小程序 微信">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序的学习">
 <meta property="og:url" content="http://yoursite.com/2019/09/13/微信小程序的学习/index.html">
 <meta property="og:site_name" content="Chen">
-<meta property="og:description" content="##1.小程序的基本配置参考官方文档，（国人设计的，真心好用，通俗易懂） ##2.小程序的双线程模型 ####小程序的宿主环境是微信客户端，1.宿主环境为了执行小程序的各种文件：wxml文件，wxss文件，js文件。2.提供了小程序的双线程模型 ####双线程模型1.WXML模块和WXSS样式运行于渲染层，渲染层使用WebView线程渲染(一个程序有多个页面，会使用多个webview的线程)2.J">
+<meta property="og:description" content="#微信小程序的学习">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-27T02:08:42.148Z">
+<meta property="og:updated_time" content="2019-09-28T16:30:27.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序的学习">
-<meta name="twitter:description" content="##1.小程序的基本配置参考官方文档，（国人设计的，真心好用，通俗易懂） ##2.小程序的双线程模型 ####小程序的宿主环境是微信客户端，1.宿主环境为了执行小程序的各种文件：wxml文件，wxss文件，js文件。2.提供了小程序的双线程模型 ####双线程模型1.WXML模块和WXSS样式运行于渲染层，渲染层使用WebView线程渲染(一个程序有多个页面，会使用多个webview的线程)2.J">
+<meta name="twitter:description" content="#微信小程序的学习">
   
     <link rel="alternative" href="/atom.xml" title="Chen" type="application/atom+xml">
   
@@ -184,11 +185,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.小程序的基本配置<br>参考官方文档，（国人设计的，真心好用，通俗易懂）</p>
-<p>##2.小程序的双线程模型</p>
-<p>####小程序的宿主环境是微信客户端，<br>1.宿主环境为了执行小程序的各种文件：wxml文件，wxss文件，js文件。<br>2.提供了小程序的双线程模型</p>
-<p>####双线程模型<br>1.WXML模块和WXSS样式运行于渲染层，渲染层使用WebView线程渲染(一个程序有多个页面，会使用多个webview的线程)<br>2.JS脚本运行于逻辑层，逻辑层使用JsCore运行JS脚本<br>3.这两个线程都会由微信客户端进行中转交互</p>
-<p>####界面渲染的整体流程<br>1.在渲染层，宿主环境会把WXML转化成对应的JS对象<br>2.将JS对象再次转成真实的DOM树，交由渲染层线程渲染<br>3.数据变化是，逻辑层提供最新的变化数据，JS对象发生变化比较进行DIFF算法对比<br>4.将最新变化的内容反映到真实的DOM树中，更新UI</p>
+        <p>#微信小程序的学习</p>
+<a id="more"></a>
+<h2 id="1-小程序的基本配置"><a href="#1-小程序的基本配置" class="headerlink" title="1.小程序的基本配置"></a>1.小程序的基本配置</h2><p>参考官方文档，（国人设计的，真心好用，通俗易懂）</p>
+<h2 id="2-小程序的双线程模型"><a href="#2-小程序的双线程模型" class="headerlink" title="2.小程序的双线程模型"></a>2.小程序的双线程模型</h2><h4 id="小程序的宿主环境是微信客户端，"><a href="#小程序的宿主环境是微信客户端，" class="headerlink" title="小程序的宿主环境是微信客户端，"></a>小程序的宿主环境是微信客户端，</h4><p>1.宿主环境为了执行小程序的各种文件：wxml文件，wxss文件，js文件。<br>2.提供了小程序的双线程模型</p>
+<h4 id="双线程模型"><a href="#双线程模型" class="headerlink" title="双线程模型"></a>双线程模型</h4><p>1.WXML模块和WXSS样式运行于渲染层，渲染层使用WebView线程渲染(一个程序有多个页面，会使用多个webview的线程)<br>2.JS脚本运行于逻辑层，逻辑层使用JsCore运行JS脚本<br>3.这两个线程都会由微信客户端进行中转交互</p>
+<h4 id="界面渲染的整体流程"><a href="#界面渲染的整体流程" class="headerlink" title="界面渲染的整体流程"></a>界面渲染的整体流程</h4><p>1.在渲染层，宿主环境会把WXML转化成对应的JS对象<br>2.将JS对象再次转成真实的DOM树，交由渲染层线程渲染<br>3.数据变化是，逻辑层提供最新的变化数据，JS对象发生变化比较进行DIFF算法对比<br>4.将最新变化的内容反映到真实的DOM树中，更新UI</p>
+<h2 id="3-注册小程序流程"><a href="#3-注册小程序流程" class="headerlink" title="3.注册小程序流程"></a>3.注册小程序流程</h2><h4 id="注册APP时做些什么？"><a href="#注册APP时做些什么？" class="headerlink" title="注册APP时做些什么？"></a>注册APP时做些什么？</h4><p>1.判断小程序的进入场景<br>2.监听生命周期函数，在生命周期中执行对应的业务逻辑，比如在某个生命周期函数中获取微信用户的信息。<br>3.因为App()实例只有一个，并且是全局共享的（单例对象），所以我们可以将一些共享数据放在这里。</p>
+<h5 id="如何确定场景"><a href="#如何确定场景" class="headerlink" title="如何确定场景?"></a>如何确定场景?</h5><p>在onLaunch和onShow生命周期回调函数中,会有options参数，其中有scene值</p>
+<h5 id="获取微信用户的基本信息的方式："><a href="#获取微信用户的基本信息的方式：" class="headerlink" title="获取微信用户的基本信息的方式："></a>获取微信用户的基本信息的方式：</h5><p>1.wx.getUserInfo – 即将废弃的接口；<br>2.button组件 – 将open-type改成getUserInfo，并且绑定bindgetuserinfo事件去获取；<br>3.使用open-data组件展示用户信息；</p>
+<h4 id="注册Page时做什么呢？"><a href="#注册Page时做什么呢？" class="headerlink" title="注册Page时做什么呢？"></a>注册Page时做什么呢？</h4><p>1.在生命周期函数中发送网络请求，从服务器获取数据；<br>2.初始化一些数据，以方便被wxml引用展示；<br>3.监听wxml中的事件，绑定对应的事件函数；<br>4.其他一些监听（比如页面滚动、上拉刷新、下拉加载更多等）</p>
 
       
 <!-- 增加版权声明 -->
@@ -252,6 +258,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">小程序 微信</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -345,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-小程序的基本配置"><span class="toc-number">1.</span> <span class="toc-text">1.小程序的基本配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-小程序的双线程模型"><span class="toc-number">2.</span> <span class="toc-text">2.小程序的双线程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小程序的宿主环境是微信客户端，"><span class="toc-number">2.0.1.</span> <span class="toc-text">小程序的宿主环境是微信客户端，</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双线程模型"><span class="toc-number">2.0.2.</span> <span class="toc-text">双线程模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#界面渲染的整体流程"><span class="toc-number">2.0.3.</span> <span class="toc-text">界面渲染的整体流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注册小程序流程"><span class="toc-number">3.</span> <span class="toc-text">3.注册小程序流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册APP时做些什么？"><span class="toc-number">3.0.1.</span> <span class="toc-text">注册APP时做些什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#如何确定场景"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">如何确定场景?</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取微信用户的基本信息的方式："><span class="toc-number">3.0.1.2.</span> <span class="toc-text">获取微信用户的基本信息的方式：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注册Page时做什么呢？"><span class="toc-number">3.0.2.</span> <span class="toc-text">注册Page时做什么呢？</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -457,11 +474,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">小程序 微信</a>
               </li>
             
             <div class="clearfix"></div>

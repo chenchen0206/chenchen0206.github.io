@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>【转载】hexo 文章保存为草稿 | Chen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="转载自： https://novnan.github.io/Hexo/hexo-draft/ ##传统建立文章方式一般我们都会使用 new ``` 来建立文章，这种建立方法会将新文章建立在 source/_posts 目录下，当使用 hexo generate 编译 markdown 文件时，会将其 HTML 结果编译在 public 目录下，之后 hexo deploy 将会把 public 目">
+  <meta name="description" content="转载自： https://novnan.github.io/Hexo/hexo-draft/">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【转载】hexo 文章保存为草稿">
 <meta property="og:url" content="http://yoursite.com/2019/09/12/hexo文章保存为草稿/index.html">
 <meta property="og:site_name" content="Chen">
-<meta property="og:description" content="转载自： https://novnan.github.io/Hexo/hexo-draft/ ##传统建立文章方式一般我们都会使用 new ``` 来建立文章，这种建立方法会将新文章建立在 source/_posts 目录下，当使用 hexo generate 编译 markdown 文件时，会将其 HTML 结果编译在 public 目录下，之后 hexo deploy 将会把 public 目">
+<meta property="og:description" content="转载自： https://novnan.github.io/Hexo/hexo-draft/">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-26T13:48:11.814Z">
+<meta property="og:updated_time" content="2019-09-28T16:32:11.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【转载】hexo 文章保存为草稿">
-<meta name="twitter:description" content="转载自： https://novnan.github.io/Hexo/hexo-draft/ ##传统建立文章方式一般我们都会使用 new ``` 来建立文章，这种建立方法会将新文章建立在 source/_posts 目录下，当使用 hexo generate 编译 markdown 文件时，会将其 HTML 结果编译在 public 目录下，之后 hexo deploy 将会把 public 目">
+<meta name="twitter:description" content="转载自： https://novnan.github.io/Hexo/hexo-draft/">
   
     <link rel="alternative" href="/atom.xml" title="Chen" type="application/atom+xml">
   
@@ -186,10 +186,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>转载自： <a href="https://novnan.github.io/Hexo/hexo-draft/" target="_blank" rel="noopener">https://novnan.github.io/Hexo/hexo-draft/</a></p>
-<p>##传统建立文章方式<br>一般我们都会使用 <figure class="highlight plain"><figcaption><span>new <title>``` 来建立文章，这种建立方法会将新文章建立在 source/_posts 目录下，当使用 hexo generate 编译 markdown 文件时，会将其 HTML 结果编译在 public 目录下，之后 hexo deploy 将会把 public 目录下所有文章部署到 GitHub，这是我们熟悉的 Hexo 流程。</title></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这种建立文章方式的缺点是：若我们同时编辑多篇文章，只要其中一篇文章尚未编辑完成，也会随着 hexo deploy 一起部署到 GitHub，也就是 GitHub 可能会看到我们尚未完成的文章。</span><br><span class="line"></span><br><span class="line">##建立文章草稿</span><br><span class="line">```$ hexo new draft &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="传统建立文章方式"><a href="#传统建立文章方式" class="headerlink" title="传统建立文章方式"></a>传统建立文章方式</h2><p>一般我们都会使用 <figure class="highlight plain"><figcaption><span>new <title>``` 来建立文章，这种建立方法会将新文章建立在 source/_posts 目录下，当使用 hexo generate 编译 markdown 文件时，会将其 HTML 结果编译在 public 目录下，之后 hexo deploy 将会把 public 目录下所有文章部署到 GitHub，这是我们熟悉的 Hexo 流程。</title></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这种建立文章方式的缺点是：若我们同时编辑多篇文章，只要其中一篇文章尚未编辑完成，也会随着 hexo deploy 一起部署到 GitHub，也就是 GitHub 可能会看到我们尚未完成的文章。</span><br><span class="line"></span><br><span class="line">## 建立文章草稿</span><br><span class="line">```$ hexo new draft &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
 <p>Hexo 另外提供 draft 机制，它的原理是新文章将建立在 source/_drafts 目录下，因此 hexo generate 并不会将其编译到 public 目录下，所以 hexo deploy 也不会将其部署到 GitHub。</p>
-<p>##本机预览草稿</p>
-<figure class="highlight plain"><figcaption><span>hexo S --draft```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">虽然 hexo generate 不会编译 source/_drafts 目录下的文章，但 Hexo 的 Hexo server 另外提供 --draft 参数，这让我们只要搭配 hexo-browsersync plugins，就可以达到一边编辑 markdown 文章，一边使用浏览器预览的目的。</span><br><span class="line"></span><br><span class="line">##将草稿发布为正式文章</span><br><span class="line">```$ hexo P &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="本机预览草稿"><a href="#本机预览草稿" class="headerlink" title="本机预览草稿"></a>本机预览草稿</h2><figure class="highlight plain"><figcaption><span>hexo S --draft```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">虽然 hexo generate 不会编译 source/_drafts 目录下的文章，但 Hexo 的 Hexo server 另外提供 --draft 参数，这让我们只要搭配 hexo-browsersync plugins，就可以达到一边编辑 markdown 文章，一边使用浏览器预览的目的。</span><br><span class="line"></span><br><span class="line">## 将草稿发布为正式文章</span><br><span class="line">```$ hexo P &lt;filename&gt;</span><br></pre></td></tr></table></figure>
 
 <p>其中 <code>&lt;filename&gt;</code> 为不包含 md 后缀的文章名称。它的原理只是将文章从 source/_drafts 移动到 source/_posts 而已。</p>
 <p>之后的 hexo generate 与 hexo deploy 的用法就完全一样了。</p>
@@ -370,7 +370,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#传统建立文章方式"><span class="toc-number">1.</span> <span class="toc-text">传统建立文章方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本机预览草稿"><span class="toc-number">2.</span> <span class="toc-text">本机预览草稿</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -482,11 +482,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">小程序 微信</a>
               </li>
             
             <div class="clearfix"></div>

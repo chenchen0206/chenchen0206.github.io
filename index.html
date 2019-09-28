@@ -182,12 +182,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.小程序的基本配置<br>参考官方文档，（国人设计的，真心好用，通俗易懂）</p>
-<p>##2.小程序的双线程模型</p>
-<p>####小程序的宿主环境是微信客户端，<br>1.宿主环境为了执行小程序的各种文件：wxml文件，wxss文件，js文件。<br>2.提供了小程序的双线程模型</p>
-<p>####双线程模型<br>1.WXML模块和WXSS样式运行于渲染层，渲染层使用WebView线程渲染(一个程序有多个页面，会使用多个webview的线程)<br>2.JS脚本运行于逻辑层，逻辑层使用JsCore运行JS脚本<br>3.这两个线程都会由微信客户端进行中转交互</p>
-<p>####界面渲染的整体流程<br>1.在渲染层，宿主环境会把WXML转化成对应的JS对象<br>2.将JS对象再次转成真实的DOM树，交由渲染层线程渲染<br>3.数据变化是，逻辑层提供最新的变化数据，JS对象发生变化比较进行DIFF算法对比<br>4.将最新变化的内容反映到真实的DOM树中，更新UI</p>
-
+        <p>#微信小程序的学习</p>
+        
+          <a class="article-more-a" href="/2019/09/13/微信小程序的学习/#more">more >></a>
+        
       
 <!-- 增加版权声明 -->
 
@@ -202,6 +200,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">小程序 微信</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -257,15 +266,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>转载自： <a href="https://novnan.github.io/Hexo/hexo-draft/" target="_blank" rel="noopener">https://novnan.github.io/Hexo/hexo-draft/</a></p>
-<p>##传统建立文章方式<br>一般我们都会使用 <figure class="highlight plain"><figcaption><span>new <title>``` 来建立文章，这种建立方法会将新文章建立在 source/_posts 目录下，当使用 hexo generate 编译 markdown 文件时，会将其 HTML 结果编译在 public 目录下，之后 hexo deploy 将会把 public 目录下所有文章部署到 GitHub，这是我们熟悉的 Hexo 流程。</title></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这种建立文章方式的缺点是：若我们同时编辑多篇文章，只要其中一篇文章尚未编辑完成，也会随着 hexo deploy 一起部署到 GitHub，也就是 GitHub 可能会看到我们尚未完成的文章。</span><br><span class="line"></span><br><span class="line">##建立文章草稿</span><br><span class="line">```$ hexo new draft &lt;title&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Hexo 另外提供 draft 机制，它的原理是新文章将建立在 source/_drafts 目录下，因此 hexo generate 并不会将其编译到 public 目录下，所以 hexo deploy 也不会将其部署到 GitHub。</p>
-<p>##本机预览草稿</p>
-<figure class="highlight plain"><figcaption><span>hexo S --draft```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">虽然 hexo generate 不会编译 source/_drafts 目录下的文章，但 Hexo 的 Hexo server 另外提供 --draft 参数，这让我们只要搭配 hexo-browsersync plugins，就可以达到一边编辑 markdown 文章，一边使用浏览器预览的目的。</span><br><span class="line"></span><br><span class="line">##将草稿发布为正式文章</span><br><span class="line">```$ hexo P &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-
-<p>其中 <code>&lt;filename&gt;</code> 为不包含 md 后缀的文章名称。它的原理只是将文章从 source/_drafts 移动到 source/_posts 而已。</p>
-<p>之后的 hexo generate 与 hexo deploy 的用法就完全一样了。</p>
-<p>若日后想将正式文章转为为草稿，只需手动将文章从 source/_posts 目录移动到 source/_drafts 目录即可。</p>
-
+        
+          <a class="article-more-a" href="/2019/09/12/hexo文章保存为草稿/#more">more >></a>
+        
       
 <!-- 增加版权声明 -->
 
@@ -499,11 +502,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">小程序 微信</a>
               </li>
             
             <div class="clearfix"></div>
