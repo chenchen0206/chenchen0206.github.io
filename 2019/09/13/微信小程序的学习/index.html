@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Chen">
 <meta property="og:description" content="#微信小程序的学习">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-28T16:30:27.394Z">
+<meta property="og:updated_time" content="2019-09-29T00:41:01.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序的学习">
 <meta name="twitter:description" content="#微信小程序的学习">
@@ -188,13 +188,55 @@
         <p>#微信小程序的学习</p>
 <a id="more"></a>
 <h2 id="1-小程序的基本配置"><a href="#1-小程序的基本配置" class="headerlink" title="1.小程序的基本配置"></a>1.小程序的基本配置</h2><p>参考官方文档，（国人设计的，真心好用，通俗易懂）</p>
-<h2 id="2-小程序的双线程模型"><a href="#2-小程序的双线程模型" class="headerlink" title="2.小程序的双线程模型"></a>2.小程序的双线程模型</h2><h4 id="小程序的宿主环境是微信客户端，"><a href="#小程序的宿主环境是微信客户端，" class="headerlink" title="小程序的宿主环境是微信客户端，"></a>小程序的宿主环境是微信客户端，</h4><p>1.宿主环境为了执行小程序的各种文件：wxml文件，wxss文件，js文件。<br>2.提供了小程序的双线程模型</p>
-<h4 id="双线程模型"><a href="#双线程模型" class="headerlink" title="双线程模型"></a>双线程模型</h4><p>1.WXML模块和WXSS样式运行于渲染层，渲染层使用WebView线程渲染(一个程序有多个页面，会使用多个webview的线程)<br>2.JS脚本运行于逻辑层，逻辑层使用JsCore运行JS脚本<br>3.这两个线程都会由微信客户端进行中转交互</p>
-<h4 id="界面渲染的整体流程"><a href="#界面渲染的整体流程" class="headerlink" title="界面渲染的整体流程"></a>界面渲染的整体流程</h4><p>1.在渲染层，宿主环境会把WXML转化成对应的JS对象<br>2.将JS对象再次转成真实的DOM树，交由渲染层线程渲染<br>3.数据变化是，逻辑层提供最新的变化数据，JS对象发生变化比较进行DIFF算法对比<br>4.将最新变化的内容反映到真实的DOM树中，更新UI</p>
-<h2 id="3-注册小程序流程"><a href="#3-注册小程序流程" class="headerlink" title="3.注册小程序流程"></a>3.注册小程序流程</h2><h4 id="注册APP时做些什么？"><a href="#注册APP时做些什么？" class="headerlink" title="注册APP时做些什么？"></a>注册APP时做些什么？</h4><p>1.判断小程序的进入场景<br>2.监听生命周期函数，在生命周期中执行对应的业务逻辑，比如在某个生命周期函数中获取微信用户的信息。<br>3.因为App()实例只有一个，并且是全局共享的（单例对象），所以我们可以将一些共享数据放在这里。</p>
+<h2 id="2-小程序的双线程模型"><a href="#2-小程序的双线程模型" class="headerlink" title="2.小程序的双线程模型"></a>2.小程序的双线程模型</h2><h4 id="小程序的宿主环境是微信客户端，"><a href="#小程序的宿主环境是微信客户端，" class="headerlink" title="小程序的宿主环境是微信客户端，"></a>小程序的宿主环境是微信客户端，</h4><ol>
+<li>宿主环境为了执行小程序的各种文件：wxml文件，wxss文件，js文件。</li>
+<li>提供了小程序的双线程模型</li>
+</ol>
+<h4 id="双线程模型"><a href="#双线程模型" class="headerlink" title="双线程模型"></a>双线程模型</h4><ol>
+<li>WXML模块和WXSS样式运行于渲染层，渲染层使用WebView线程渲染(一个程序有多个页面，会使用多个webview的线程)</li>
+<li>JS脚本运行于逻辑层，逻辑层使用JsCore运行JS脚本</li>
+<li>这两个线程都会由微信客户端进行中转交互</li>
+</ol>
+<h4 id="界面渲染的整体流程"><a href="#界面渲染的整体流程" class="headerlink" title="界面渲染的整体流程"></a>界面渲染的整体流程</h4><ol>
+<li>在渲染层，宿主环境会把WXML转化成对应的JS对象</li>
+<li>将JS对象再次转成真实的DOM树，交由渲染层线程渲染</li>
+<li>数据变化是，逻辑层提供最新的变化数据，JS对象发生变化比较进行DIFF算法对比</li>
+<li>将最新变化的内容反映到真实的DOM树中，更新UI</li>
+</ol>
+<h2 id="3-注册小程序流程"><a href="#3-注册小程序流程" class="headerlink" title="3.注册小程序流程"></a>3.注册小程序流程</h2><h4 id="注册APP时做些什么？"><a href="#注册APP时做些什么？" class="headerlink" title="注册APP时做些什么？"></a>注册APP时做些什么？</h4><ol>
+<li>判断小程序的进入场景</li>
+<li>监听生命周期函数，在生命周期中执行对应的业务逻辑，比如在某个生命周期函数中获取微信用户的信息。</li>
+<li>因为App()实例只有一个，并且是全局共享的（单例对象），所以我们可以将一些共享数据放在这里。</li>
+</ol>
 <h5 id="如何确定场景"><a href="#如何确定场景" class="headerlink" title="如何确定场景?"></a>如何确定场景?</h5><p>在onLaunch和onShow生命周期回调函数中,会有options参数，其中有scene值</p>
-<h5 id="获取微信用户的基本信息的方式："><a href="#获取微信用户的基本信息的方式：" class="headerlink" title="获取微信用户的基本信息的方式："></a>获取微信用户的基本信息的方式：</h5><p>1.wx.getUserInfo – 即将废弃的接口；<br>2.button组件 – 将open-type改成getUserInfo，并且绑定bindgetuserinfo事件去获取；<br>3.使用open-data组件展示用户信息；</p>
-<h4 id="注册Page时做什么呢？"><a href="#注册Page时做什么呢？" class="headerlink" title="注册Page时做什么呢？"></a>注册Page时做什么呢？</h4><p>1.在生命周期函数中发送网络请求，从服务器获取数据；<br>2.初始化一些数据，以方便被wxml引用展示；<br>3.监听wxml中的事件，绑定对应的事件函数；<br>4.其他一些监听（比如页面滚动、上拉刷新、下拉加载更多等）</p>
+<h5 id="获取微信用户的基本信息的方式："><a href="#获取微信用户的基本信息的方式：" class="headerlink" title="获取微信用户的基本信息的方式："></a>获取微信用户的基本信息的方式：</h5><ol>
+<li>wx.getUserInfo – 即将废弃的接口；</li>
+<li>button组件 – 将open-type改成getUserInfo，并且绑定bindgetuserinfo事件去获取；</li>
+<li>使用open-data组件展示用户信息；</li>
+</ol>
+<h4 id="注册Page时做什么呢？"><a href="#注册Page时做什么呢？" class="headerlink" title="注册Page时做什么呢？"></a>注册Page时做什么呢？</h4><ol>
+<li>在生命周期函数中发送网络请求，从服务器获取数据；</li>
+<li>初始化一些数据，以方便被wxml引用展示；</li>
+<li>监听wxml中的事件，绑定对应的事件函数；</li>
+<li>其他一些监听（比如页面滚动、上拉刷新、下拉加载更多等）</li>
+</ol>
+<h2 id="4-WXSS-amp-amp-WXML-amp-amp-WXS"><a href="#4-WXSS-amp-amp-WXML-amp-amp-WXS" class="headerlink" title="4.WXSS&amp;&amp;WXML&amp;&amp;WXS"></a>4.WXSS&amp;&amp;WXML&amp;&amp;WXS</h2><h4 id="WXSS的扩展尺寸单位"><a href="#WXSS的扩展尺寸单位" class="headerlink" title="WXSS的扩展尺寸单位"></a>WXSS的扩展尺寸单位</h4><p> rpx（responsive pixel）: 可以根据屏幕宽度进行自适应规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px共有750个物理像素，则750rpx = 375px = 750物理像素1rpx = 0.5px = 1物理像素。<br> 建议： 开发微信小程序时设计师可以用 iPhone6 作为视觉的标准。</p>
+<h4 id="WXSS的扩展样式导入"><a href="#WXSS的扩展样式导入" class="headerlink" title="WXSS的扩展样式导入"></a>WXSS的扩展样式导入</h4><p> 在某些情况下，我们可能会将样式分在多个wxss文件中，方便对样式的管理。<br>这个时候，我们就可以使用样式导入，来让单独的wxss生效<br>我们可以在一个wxss中导入另一个wxss文件：</p>
+<ol>
+<li>使用@import进行导入</li>
+<li>@import后跟需要导入的外联样式表的相对路径（或者绝对路<br>径也可以），用;表示语句结束。<br>可以在app.wxss中导入这个样式，也可以在page.wxss导入这个样式<br>#####官方样式库<br>为了减少开发者样式开发的工作量，小程序官方提供了WeUI.wxss基本<a href="https://github.com/Tencent/weui-wxss" target="_blank" rel="noopener">样式库</a></li>
+</ol>
+<h4 id="WXML的基本语法"><a href="#WXML的基本语法" class="headerlink" title="WXML的基本语法"></a>WXML的基本语法</h4><p>WXML基本格式：</p>
+<ol>
+<li>类似于HTML代码：比如可以写成单标签，也可以写成双标签</li>
+<li>必须有严格的闭合：没有闭合会导致编译错误</li>
+<li>大小写敏感：class和Class是不同的属性<h5 id="开发中-界面上展示的数据并不是写死的-而是会根据服务器返回的数据-或者用户的操作来进行改变"><a href="#开发中-界面上展示的数据并不是写死的-而是会根据服务器返回的数据-或者用户的操作来进行改变" class="headerlink" title="开发中, 界面上展示的数据并不是写死的, 而是会根据服务器返回的数据, 或者用户的操作来进行改变."></a>开发中, 界面上展示的数据并不是写死的, 而是会根据服务器返回的数据, 或者用户的操作来进行改变.</h5>如果使用原生JS或者jQuery的话, 我们需要通过操作DOM来进行界面的更新.<br>小程序和Vue/React一样, 提供了插值语法: Mustache语法(双大括号)<br>Mustache语法不仅仅可以直接显示数据, 也可以使用表达式,并且可以绑定到属性.<h4 id="逻辑判断-wx-if-–-wx-elif-–-wx-else"><a href="#逻辑判断-wx-if-–-wx-elif-–-wx-else" class="headerlink" title="逻辑判断 wx:if – wx:elif – wx:else"></a>逻辑判断 wx:if – wx:elif – wx:else</h4>某些时候, 我们需要根据条件来决定一些内容是否渲染：<br>当条件为true时, view组件会渲染出来<br>当条件为false时, view组件不会渲染出来<br>有多个条件:使用wx:if-wx:elif-wx:else<h5 id="hidden属性"><a href="#hidden属性" class="headerlink" title="hidden属性:"></a>hidden属性:</h5>hidden是所有的组件都默认拥有的属性,<br>当hidden属性为true时, 组件会被隐藏<br>当hidden属性为false时, 组件会显示出来<h5 id="hidden和wx-if的区别"><a href="#hidden和wx-if的区别" class="headerlink" title="hidden和wx:if的区别"></a>hidden和wx:if的区别</h5>hidden控制隐藏和显示是控制是否添加hidden属性<br>wx:if是控制组件是否渲染的</li>
+</ol>
+<h4 id="列表渲染-–-wx-for基础"><a href="#列表渲染-–-wx-for基础" class="headerlink" title="列表渲染 – wx:for基础"></a>列表渲染 – wx:for基础</h4><p>我们知道，在实际开发中，服务器经常返回各种列表数据，我们不可能一一从列表中取出数据进行展示；<br>需要通过for循环的方式，遍历所有的数据，一次性进行展示；<br>在组件中，我们可以使用wx:for来遍历一个数组 （字符串 - 数字）<br>默认情况下，遍历后在wxml中可以使用一个变量index，保存的是当前遍历数据的下标值。<br>数组中对应某项的数据，使用变量名item获取。</p>
+<h4 id="block标签"><a href="#block标签" class="headerlink" title="block标签"></a>block标签</h4><p>什么是block标签？<br>某些情况下，我们需要使用 wx:if 或 wx:for时，可能需要包裹一组组件标签<br>我们希望对这一组组件标签进行整体的操作，使用一个view标签或者block标签包裹</p>
+<h5 id="block标签的意义"><a href="#block标签的意义" class="headerlink" title="block标签的意义"></a>block标签的意义</h5><p><code>&lt;block/&gt;</code> 并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。<br>使用block有两个好处：<br>1）将需要进行遍历或者判断的内容进行包裹。<br>2）将遍历和判断的属性放在block便签中，不影响普通属性的阅读，提高代码的可读性。</p>
+<h4 id="列表渲染-–-item-index名称"><a href="#列表渲染-–-item-index名称" class="headerlink" title="列表渲染 – item/index名称"></a>列表渲染 – item/index名称</h4><p>默认情况下，item – index的名字是固定的<br>但是某些情况下，我们可能想使用其他名称,或者当出现多层遍历时，名字会重复<br>这个时候，我们可以指定item和index的名称```wx:for-item=”指定名称”，wx:for-index=”指定名称”</p>
+<p>列表渲染 – key作用<br>◼ 我们看到，使用wx:for时，会报一个警告：<br> 这个提示告诉我们，可以添加一个key来提供性能。 ◼ 为什么需要这个key属性呢（了解）？<br> 这个其实和小程序内部也使用了虚拟DOM有关系（和Vue、React很相似）。<br>◼ 当某一层有很多相同的节点时，也就是列表节点时，我们希望插入一个新的节点<br> 我们希望可以在B和C之间加一个F，Diff算法默认执行起来是这样的。<br> 即把C更新成F，D更新成C，E更新成D，最后再插入E，是不是很没有效率？<br>◼ 所以我们需要使用key来给每个节点做一个唯一标识<br> Diff算法就可以正确的识别此节点<br> 找到正确的位置区插入新的节点。<br>◼ 所以一句话，key的作用主要是为了高效的更新虚拟DOM。<br>Made by coderwhy<br><a href="http://www.itlike.com" target="_blank" rel="noopener">www.itlike.com</a><br>模板用法<br>◼ WXML提供模板（template），可以在模板中定义代码片段，在不同的地方调用。(是一种wxml代码的复用机制)  使用 name 属性，作为模板的名字, 然后在 <template> 内定义代码片段<br>Made by coderwhy<br><a href="http://www.itlike.com" target="_blank" rel="noopener">www.itlike.com</a><br>wxml的引入<br>◼ 小程序wxml中提供了两种引入文件的方式：import和include<br>◼ Import引入：import 可以在该文件中使用目标文件定义的 template<br>◼ 比如下面的演练：<br> 在item.wxml中定义一个item的template<br> 在home.wxml中引入，并且使用template<br>◼ 注意：wxml中不能递归引入（也就是A引入了B的template，不会引入B中引入C的template）<br>Made by coderwhy<br><a href="http://www.itlike.com" target="_blank" rel="noopener">www.itlike.com</a><br>include引入<br>◼ include 可以将目标文件中除了 <template> <wxs> 外的整个代码引入，相当于是拷贝到 include 位置：<br>Made by coderwhy<br><a href="http://www.itlike.com" target="_blank" rel="noopener">www.itlike.com</a><br>wxs模块<br>◼ WXS（WeiXin Script）是小程序的一套脚本语言，结合 WXML，可以构建出页面的结构。<br> 官方：WXS 与 JavaScript 是不同的语言，有自己的语法，并不和 JavaScript 一致。（不过基本一致）<br>◼ 为什么要设计WXS语言呢？<br> 在WXML中是不能直接调用Page/Component中定义的函数的.  但是某些情况, 我们可以希望使用函数来处理WXML中的数据(类似于Vue中的过滤器)，这个时候就使用WXS了 ◼ WXS使用的限制和特点：<br> WXS 的运行环境和其他 JavaScript 代码是隔离的，WXS 中不能调用其他 JavaScript 文件中定义的函数，也<br>不能调用小程序提供的API。  WXS 函数不能作为组件的事件回调。<br> 由于运行环境的差异，在 iOS 设备上小程序内的 WXS 会比 JavaScript 代码快 2 ~ 20 倍。在 android 设备<br>上二者运行效率无差异。<br>Made by coderwhy<br><a href="http://www.itlike.com" target="_blank" rel="noopener">www.itlike.com</a><br>WXS的写法<br>◼ WXS有两种写法：<br> - 写在<wxs>标签中<br> - 写在以.wxs结尾的文件中</wxs></wxs></template></template></p>
 
       
 <!-- 增加版权声明 -->
@@ -362,7 +404,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-小程序的基本配置"><span class="toc-number">1.</span> <span class="toc-text">1.小程序的基本配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-小程序的双线程模型"><span class="toc-number">2.</span> <span class="toc-text">2.小程序的双线程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小程序的宿主环境是微信客户端，"><span class="toc-number">2.0.1.</span> <span class="toc-text">小程序的宿主环境是微信客户端，</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双线程模型"><span class="toc-number">2.0.2.</span> <span class="toc-text">双线程模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#界面渲染的整体流程"><span class="toc-number">2.0.3.</span> <span class="toc-text">界面渲染的整体流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注册小程序流程"><span class="toc-number">3.</span> <span class="toc-text">3.注册小程序流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册APP时做些什么？"><span class="toc-number">3.0.1.</span> <span class="toc-text">注册APP时做些什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#如何确定场景"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">如何确定场景?</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取微信用户的基本信息的方式："><span class="toc-number">3.0.1.2.</span> <span class="toc-text">获取微信用户的基本信息的方式：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注册Page时做什么呢？"><span class="toc-number">3.0.2.</span> <span class="toc-text">注册Page时做什么呢？</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-小程序的基本配置"><span class="toc-number">1.</span> <span class="toc-text">1.小程序的基本配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-小程序的双线程模型"><span class="toc-number">2.</span> <span class="toc-text">2.小程序的双线程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#小程序的宿主环境是微信客户端，"><span class="toc-number">2.0.1.</span> <span class="toc-text">小程序的宿主环境是微信客户端，</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#双线程模型"><span class="toc-number">2.0.2.</span> <span class="toc-text">双线程模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#界面渲染的整体流程"><span class="toc-number">2.0.3.</span> <span class="toc-text">界面渲染的整体流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注册小程序流程"><span class="toc-number">3.</span> <span class="toc-text">3.注册小程序流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注册APP时做些什么？"><span class="toc-number">3.0.1.</span> <span class="toc-text">注册APP时做些什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#如何确定场景"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">如何确定场景?</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取微信用户的基本信息的方式："><span class="toc-number">3.0.1.2.</span> <span class="toc-text">获取微信用户的基本信息的方式：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注册Page时做什么呢？"><span class="toc-number">3.0.2.</span> <span class="toc-text">注册Page时做什么呢？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-WXSS-amp-amp-WXML-amp-amp-WXS"><span class="toc-number">4.</span> <span class="toc-text">4.WXSS&amp;&amp;WXML&amp;&amp;WXS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WXSS的扩展尺寸单位"><span class="toc-number">4.0.1.</span> <span class="toc-text">WXSS的扩展尺寸单位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WXSS的扩展样式导入"><span class="toc-number">4.0.2.</span> <span class="toc-text">WXSS的扩展样式导入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WXML的基本语法"><span class="toc-number">4.0.3.</span> <span class="toc-text">WXML的基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#开发中-界面上展示的数据并不是写死的-而是会根据服务器返回的数据-或者用户的操作来进行改变"><span class="toc-number">4.0.3.1.</span> <span class="toc-text">开发中, 界面上展示的数据并不是写死的, 而是会根据服务器返回的数据, 或者用户的操作来进行改变.</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#逻辑判断-wx-if-–-wx-elif-–-wx-else"><span class="toc-number">4.0.4.</span> <span class="toc-text">逻辑判断 wx:if – wx:elif – wx:else</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#hidden属性"><span class="toc-number">4.0.4.1.</span> <span class="toc-text">hidden属性:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hidden和wx-if的区别"><span class="toc-number">4.0.4.2.</span> <span class="toc-text">hidden和wx:if的区别</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列表渲染-–-wx-for基础"><span class="toc-number">4.0.5.</span> <span class="toc-text">列表渲染 – wx:for基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#block标签"><span class="toc-number">4.0.6.</span> <span class="toc-text">block标签</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#block标签的意义"><span class="toc-number">4.0.6.1.</span> <span class="toc-text">block标签的意义</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列表渲染-–-item-index名称"><span class="toc-number">4.0.7.</span> <span class="toc-text">列表渲染 – item/index名称</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -474,11 +516,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
