@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Chen">
 <meta property="og:description" content="JavaScript的知识点总结">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-09T13:42:13.030Z">
+<meta property="og:updated_time" content="2019-11-10T07:14:25.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS知识点总结">
 <meta name="twitter:description" content="JavaScript的知识点总结">
@@ -185,7 +185,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="JavaScript的知识点总结"><a href="#JavaScript的知识点总结" class="headerlink" title="JavaScript的知识点总结"></a>JavaScript的知识点总结</h1><a id="more"></a>
-<h3 id="JS中常用的数据类型"><a href="#JS中常用的数据类型" class="headerlink" title="JS中常用的数据类型"></a>JS中常用的数据类型</h3><ul>
+<h2 id="JS中常用的数据类型"><a href="#JS中常用的数据类型" class="headerlink" title="JS中常用的数据类型"></a>JS中常用的数据类型</h2><ul>
 <li>基本数据类型<ul>
 <li>数字number<br>  常规数字和NaN</li>
 <li>字符串string<br>  所有用单引号、双引号、反引号（撇）包起来的都是字符串</li>
@@ -198,7 +198,7 @@
 <li>对象数据类型object<ul>
 <li>{} 普通对象</li>
 <li>[] 数组对象</li>
-<li>/^[+-]?(\d|([1-9]\d+))(.\d+)?$/ 正则对象</li>
+<li>正则对象</li>
 <li>Math数学函数对象</li>
 <li>日期对象</li>
 <li>…</li>
@@ -208,6 +208,65 @@
 </ul>
 </li>
 </ul>
+<h3 id="number数字类型"><a href="#number数字类型" class="headerlink" title="number数字类型"></a>number数字类型</h3><blockquote>
+<p>包含：常规数字、NaN </p>
+</blockquote>
+<p>数字类型的范围:Number.MIN_VALUE == -Infinity<br>Number.MAX_VALUE == Infinity</p>
+<h4 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h4><blockquote>
+<p>not a number：不是一个数，但它隶属于数字类型</p>
+</blockquote>
+<p>NaN和任何值（包括自己）都不相等：NaN!=NaN，所以我们不能用相等的方式判断是否为有效数字</p>
+<h4 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h4><blockquote>
+<p>检测一个值是否为非有效数字，如果不是有效数字返回TRUE，反之是有效数字返回FALSE</p>
+</blockquote>
+<p>在使用isNaN进行检测的时候，首先会验证检测的值是否为数字类型，如果不是，先基于Number()这个方法，把值转换为数字类型，然后再检测</p>
+<h4 id="把其它类型值转换为数字类型"><a href="#把其它类型值转换为数字类型" class="headerlink" title="把其它类型值转换为数字类型"></a>把其它类型值转换为数字类型</h4><ul>
+<li>Number([val]): 把字符串转换为数字，只要字符串中包含任意一个非有效数字字符（第一个点除外）结果都是NaN，空字符串会变为数字零</li>
+<li>parseInt/parseFloat([val],[进制])：也是转换为数字的方法，对于字符串来说，它是从左到右依次查找有效数字字符，直到遇到非有效数字字符，停止查找（不管后面是否还有数字，都不在找了），把找到的当做数字返回</li>
+<li>==进行比较的时候，可能要出现把其它类型值转换为数字</li>
+</ul>
+<h3 id="string字符串数据类型"><a href="#string字符串数据类型" class="headerlink" title="string字符串数据类型"></a>string字符串数据类型</h3><blockquote>
+<p>所有用单引号、双引号、反引号（撇 ES6模板字符串）包起来的都是字符串</p>
+</blockquote>
+<h4 id="把其它类型值转换为字符串"><a href="#把其它类型值转换为字符串" class="headerlink" title="把其它类型值转换为字符串"></a>把其它类型值转换为字符串</h4><ul>
+<li>[val].toString()</li>
+<li>字符串拼接<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">10</span> + <span class="literal">null</span> + <span class="literal">true</span> + [] + <span class="literal">undefined</span> + <span class="string">'珠峰'</span> + <span class="literal">null</span> + [] + <span class="number">10</span> + <span class="literal">false</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 10 + null -&gt; 10 + 0 -&gt; 10</span></span><br><span class="line"><span class="comment"> * 10 + true -&gt; 10 + 1 -&gt; 11</span></span><br><span class="line"><span class="comment"> * 11 + [] -&gt; 11 + '' -&gt; '11'  空数组变为数字，先要经历变为空字符串，遇到字符串，啥都别想了，直接变为字符串拼接 </span></span><br><span class="line"><span class="comment"> * '11' + undefined -&gt; '11undefined'</span></span><br><span class="line"><span class="comment"> * ...</span></span><br><span class="line"><span class="comment"> * '11undefined珠峰null10false'</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="boolean布尔数据类型"><a href="#boolean布尔数据类型" class="headerlink" title="boolean布尔数据类型"></a>boolean布尔数据类型</h3><blockquote>
+<p>只有两个值 true/false</p>
+</blockquote>
+<h4 id="把其它类型值转换为布尔类型"><a href="#把其它类型值转换为布尔类型" class="headerlink" title="把其它类型值转换为布尔类型"></a>把其它类型值转换为布尔类型</h4><blockquote>
+<p>只有 0、NaN、’’、null、undefined 五个值转换为FALSE，其余都转换为TRUE（而且没有任何的特殊情况）</p>
+</blockquote>
+<ul>
+<li>Boolean([val])</li>
+<li>!/!!</li>
+<li>条件判断</li>
+</ul>
+<h3 id="null-undefined"><a href="#null-undefined" class="headerlink" title="null / undefined"></a>null / undefined</h3><blockquote>
+<p>null和undefined都代表的是没有</p>
+</blockquote>
+<ul>
+<li><p>null：意料之中（一般都是开始不知道值，我们手动先设置为null，后期再给予赋值操作）</p>
+</li>
+<li><p>undefined：意料之外（不是我能决定的）在声明变量但未对其加以初始化时的值</p>
+</li>
+</ul>
+<h3 id="object对象数据类型-普通对象"><a href="#object对象数据类型-普通对象" class="headerlink" title="object对象数据类型-普通对象"></a>object对象数据类型-普通对象</h3><blockquote>
+<p>{[key]:[value],…} 任何一个对象都是由零到多组键值对（属性名：属性值）组成的（并且属性名不能重复）,就是一组数据和功能的集合。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">	name: <span class="string">'易烊千玺'</span>,</span><br><span class="line">	age: <span class="number">40</span>,</span><br><span class="line">	height: <span class="string">'185CM'</span>,</span><br><span class="line">	weight: <span class="string">'80KG'</span>,</span><br><span class="line">	<span class="number">1</span>: <span class="number">100</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 删除属性</span></span><br><span class="line"><span class="comment">/* // =&gt;真删除：把属性彻底干掉</span></span><br><span class="line"><span class="comment">delete person[1];</span></span><br><span class="line"><span class="comment">// =&gt;假删除：属性还在，值为空</span></span><br><span class="line"><span class="comment">person.weight = null;</span></span><br><span class="line"><span class="comment">console.log(person); */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置属性名属性值</span></span><br><span class="line"><span class="comment">// =&gt;属性名不能重复，如果属性名已经存在，不属于新增属于修改属性值</span></span><br><span class="line"><span class="comment">/* person.GF = '园园';</span></span><br><span class="line"><span class="comment">person.name = '李易峰';</span></span><br><span class="line"><span class="comment">console.log(person['GF']);</span></span><br><span class="line"><span class="comment">console.log(person['name']); */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取属性名对应的属性值</span></span><br><span class="line"><span class="comment">// =&gt;对象.属性名</span></span><br><span class="line"><span class="comment">// =&gt;对象[属性名]  属性名是数字或者字符串格式的</span></span><br><span class="line"><span class="comment">// =&gt;如果当前属性名不存在，默认的属性值是undefined</span></span><br><span class="line"><span class="comment">// =&gt;如果属性名是数字，则不能使用点的方式获取属性值</span></span><br><span class="line"><span class="comment">/* console.log(person.name);</span></span><br><span class="line"><span class="comment">console.log(person['age']);</span></span><br><span class="line"><span class="comment">console.log(person.sex); //=&gt;undefined</span></span><br><span class="line"><span class="comment">console.log(person[1]);</span></span><br><span class="line"><span class="comment">// console.log(person.1); //=&gt;SyntaxError:语法错误 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 数组是特殊的对象</span></span><br><span class="line"><span class="comment"> *   1. 我们中括号中设置的是属性值，它的属性名是默认生成的数字，从零开始递增，而且这个数字代表每一项的位置，我们把其成为“索引” =&gt;从零开始，连续递增，代表每一项位置的数字属性名</span></span><br><span class="line"><span class="comment"> *   2. 天生默认一个属性名 length ，存储数组的长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> ary = [<span class="number">12</span>, <span class="string">'哈哈'</span>, <span class="literal">true</span>, <span class="number">13</span>];</span><br><span class="line"><span class="comment">/* console.log(ary.length);</span></span><br><span class="line"><span class="comment">console.log(ary['length']);</span></span><br><span class="line"><span class="comment">console.log(ary[1]);</span></span><br><span class="line"><span class="comment">// 第一项索引0  最后一项索引 ary.length-1</span></span><br><span class="line"><span class="comment">console.log(ary[0]);</span></span><br><span class="line"><span class="comment">console.log(ary[ary.length - 1]); */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向数组末尾追加内容</span></span><br><span class="line">ary[ary.length] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(ary);</span><br></pre></td></tr></table></figure>
+
+<h3 id="JS中的数据类型检测"><a href="#JS中的数据类型检测" class="headerlink" title="JS中的数据类型检测"></a>JS中的数据类型检测</h3><ul>
+<li>typeof [val]：用来检测数据类型的运算符</li>
+<li>instanceof ：用来检测当前实例是否率属于某个类</li>
+<li>constructor ： 基于构造函数检测数据类型（也是基于类的方式）</li>
+<li>Object.prototype.toString.call() ：检测数据类型最好的办法</li>
+</ul>
+<h5 id="基于typeof检测出来的结果"><a href="#基于typeof检测出来的结果" class="headerlink" title="基于typeof检测出来的结果"></a>基于typeof检测出来的结果</h5><p> 1.首先是一个字符串<br> 2.字符串中包含对应的类型 </p>
+<h5 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h5><p> 1.typeof null =&gt; “object”  但是null并不是对象<br> 2.基于typeof无法细分出当前值是普通对象还是数组对象等，因为只要是对象数据类型，返回的结果都是”object”</p>
 
       
 <!-- 增加版权声明 -->
@@ -364,7 +423,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript的知识点总结"><span class="toc-number">1.</span> <span class="toc-text">JavaScript的知识点总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中常用的数据类型"><span class="toc-number">1.0.1.</span> <span class="toc-text">JS中常用的数据类型</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript的知识点总结"><span class="toc-number">1.</span> <span class="toc-text">JavaScript的知识点总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS中常用的数据类型"><span class="toc-number">1.1.</span> <span class="toc-text">JS中常用的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#number数字类型"><span class="toc-number">1.1.1.</span> <span class="toc-text">number数字类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NaN"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">NaN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isNaN"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">isNaN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#把其它类型值转换为数字类型"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">把其它类型值转换为数字类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string字符串数据类型"><span class="toc-number">1.1.2.</span> <span class="toc-text">string字符串数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#把其它类型值转换为字符串"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">把其它类型值转换为字符串</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#boolean布尔数据类型"><span class="toc-number">1.1.3.</span> <span class="toc-text">boolean布尔数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#把其它类型值转换为布尔类型"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">把其它类型值转换为布尔类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null-undefined"><span class="toc-number">1.1.4.</span> <span class="toc-text">null / undefined</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#object对象数据类型-普通对象"><span class="toc-number">1.1.5.</span> <span class="toc-text">object对象数据类型-普通对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS中的数据类型检测"><span class="toc-number">1.1.6.</span> <span class="toc-text">JS中的数据类型检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基于typeof检测出来的结果"><span class="toc-number">1.1.6.0.1.</span> <span class="toc-text">基于typeof检测出来的结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#局限性"><span class="toc-number">1.1.6.0.2.</span> <span class="toc-text">局限性</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -480,11 +539,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
