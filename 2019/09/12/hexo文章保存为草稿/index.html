@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Chen">
 <meta property="og:description" content="转载自： https://novnan.github.io/Hexo/hexo-draft/">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-28T16:32:11.852Z">
+<meta property="og:updated_time" content="2019-12-16T07:30:07.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【转载】hexo 文章保存为草稿">
 <meta name="twitter:description" content="转载自： https://novnan.github.io/Hexo/hexo-draft/">
@@ -194,6 +194,33 @@
 <p>其中 <code>&lt;filename&gt;</code> 为不包含 md 后缀的文章名称。它的原理只是将文章从 source/_drafts 移动到 source/_posts 而已。</p>
 <p>之后的 hexo generate 与 hexo deploy 的用法就完全一样了。</p>
 <p>若日后想将正式文章转为为草稿，只需手动将文章从 source/_posts 目录移动到 source/_drafts 目录即可。</p>
+<p>hexo命令<br>init<br>$ hexo init [folder]<br>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</p>
+<p>new<br>$ hexo new [layout] <title><br>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</title></p>
+<p>$ hexo new “post title with whitespace”<br>参数    描述<br>-p, –path    自定义新文章的路径<br>-r, –replace    如果存在同名文章，将其替换<br>-s, –slug    文章的 Slug，作为新文章的文件名和发布后的 URL<br>默认情况下，Hexo 会使用文章的标题来决定文章文件的路径。对于独立页面来说，Hexo 会创建一个以标题为名字的目录，并在目录中放置一个 index.md 文件。你可以使用 –path 参数来覆盖上述行为、自行决定文件的目录：</p>
+<p>hexo new page –path about/me “About me”<br>以上命令会创建一个 source/about/me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
+<p>注意！title 是必须指定的！如果你这么做并不能达到你的目的：</p>
+<p>hexo new page –path about/me<br>此时 Hexo 会创建 source/_posts/about/me.md，同时 me.md 的 Front Matter 中的 title 为 “page”。这是因为在上述命令中，hexo-cli 将 page 视为指定文章的标题、并采用默认的 layout。</p>
+<p>generate<br>$ hexo generate<br>生成静态文件。</p>
+<p>选项    描述<br>-d, –deploy    文件生成后立即部署网站<br>-w, –watch    监视文件变动<br>-b, –bail    生成过程中如果发生任何未处理的异常则抛出异常<br>-f, –force    强制重新生成文件<br>Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。<br>使用该参数的效果接近 hexo clean &amp;&amp; hexo generate<br>-c, –concurrency    最大同时生成文件的数量，默认无限制<br>该命令可以简写为</p>
+<p>$ hexo g<br>publish<br>$ hexo publish [layout] <filename><br>发表草稿。</filename></p>
+<p>server<br>$ hexo server<br>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="noopener">http://localhost:4000/。</a></p>
+<p>选项    描述<br>-p, –port    重设端口<br>-s, –static    只使用静态文件<br>-l, –log    启动日记记录，使用覆盖记录格式<br>deploy<br>$ hexo deploy<br>部署网站。</p>
+<p>参数    描述<br>-g, –generate    部署之前预先生成静态文件<br>该命令可以简写为：</p>
+<p>$ hexo d<br>render<br>$ hexo render <file1> [file2] …<br>渲染文件。</file1></p>
+<p>参数    描述<br>-o, –output    设置输出路径<br>migrate<br>$ hexo migrate <type><br>从其他博客系统 迁移内容。</type></p>
+<p>clean<br>$ hexo clean<br>清除缓存文件 (db.json) 和已生成的静态文件 (public)。</p>
+<p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<p>list<br>$ hexo list <type><br>列出网站资料。</type></p>
+<p>version<br>$ hexo version<br>显示 Hexo 版本。</p>
+<p>选项<br>安全模式<br>$ hexo –safe<br>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。</p>
+<p>调试模式<br>$ hexo –debug<br>在终端中显示调试信息并记录到 debug.log。当您碰到问题时，可以尝试用调试模式重新执行一次，并 提交调试信息到 GitHub。</p>
+<p>简洁模式<br>$ hexo –silent<br>隐藏终端信息。</p>
+<p>自定义配置文件的路径</p>
+<h1 id="使用-custom-yml-代替默认的-config-yml"><a href="#使用-custom-yml-代替默认的-config-yml" class="headerlink" title="使用 custom.yml 代替默认的 _config.yml"></a>使用 custom.yml 代替默认的 _config.yml</h1><p>$ hexo server –config custom.yml</p>
+<h1 id="使用-custom-yml-和-custom2-json，其中-custom2-json-优先级更高"><a href="#使用-custom-yml-和-custom2-json，其中-custom2-json-优先级更高" class="headerlink" title="使用 custom.yml 和 custom2.json，其中 custom2.json 优先级更高"></a>使用 custom.yml 和 custom2.json，其中 custom2.json 优先级更高</h1><p>$ hexo generate –config custom.yml,custom2.json,custom3.yml<br>自定义配置文件的路径，指定这个参数后将不再使用默认的 _config.yml。<br>你可以使用一个 YAML 或 JSON 文件的路径，也可以使用逗号分隔（无空格）的多个 YAML 或 JSON 文件的路径。例如：</p>
+<h1 id="使用-custom-yml-代替默认的-config-yml-1"><a href="#使用-custom-yml-代替默认的-config-yml-1" class="headerlink" title="使用 custom.yml 代替默认的 _config.yml"></a>使用 custom.yml 代替默认的 _config.yml</h1><p>$ hexo server –config custom.yml</p>
+<h1 id="使用-custom-yml-custom2-json-和-custom3-yml，其中-custom3-yml-优先级最高，其次是-custom2-json"><a href="#使用-custom-yml-custom2-json-和-custom3-yml，其中-custom3-yml-优先级最高，其次是-custom2-json" class="headerlink" title="使用 custom.yml, custom2.json 和 custom3.yml，其中 custom3.yml 优先级最高，其次是 custom2.json"></a>使用 custom.yml, custom2.json 和 custom3.yml，其中 custom3.yml 优先级最高，其次是 custom2.json</h1><p>$ hexo generate –config custom.yml,custom2.json,custom3.yml<br>当你指定了多个配置文件以后，Hexo 会按顺序将这部分配置文件合并成一个 _multiconfig.yml。如果遇到重复的配置，排在后面的文件的配置会覆盖排在前面的文件的配置。这个原则适用于任意数量、任意深度的 YAML 和 JSON 文件。</p>
+<p>显示草稿<br>$ hexo –draft<br>显示 source/_drafts 文件夹中的草稿文章。</p>
 
       
 <!-- 增加版权声明 -->
@@ -370,7 +397,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#传统建立文章方式"><span class="toc-number">1.</span> <span class="toc-text">传统建立文章方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本机预览草稿"><span class="toc-number">2.</span> <span class="toc-text">本机预览草稿</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#传统建立文章方式"><span class="toc-number">1.</span> <span class="toc-text">传统建立文章方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本机预览草稿"><span class="toc-number">2.</span> <span class="toc-text">本机预览草稿</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用-custom-yml-代替默认的-config-yml"><span class="toc-number"></span> <span class="toc-text">使用 custom.yml 代替默认的 _config.yml</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用-custom-yml-和-custom2-json，其中-custom2-json-优先级更高"><span class="toc-number"></span> <span class="toc-text">使用 custom.yml 和 custom2.json，其中 custom2.json 优先级更高</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用-custom-yml-代替默认的-config-yml-1"><span class="toc-number"></span> <span class="toc-text">使用 custom.yml 代替默认的 _config.yml</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用-custom-yml-custom2-json-和-custom3-yml，其中-custom3-yml-优先级最高，其次是-custom2-json"><span class="toc-number"></span> <span class="toc-text">使用 custom.yml, custom2.json 和 custom3.yml，其中 custom3.yml 优先级最高，其次是 custom2.json</span></a>
                     </div>
                 </span>
             </div>
@@ -486,15 +513,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">小程序 微信</a>
+                <a href="javascript:void(0)" class="js-tag color2">JS javascript 总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">工作 问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,7 +533,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JS javascript 总结</a>
+                <a href="javascript:void(0)" class="js-tag color2">小程序 微信</a>
               </li>
             
             <div class="clearfix"></div>

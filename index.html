@@ -162,6 +162,162 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-工作中总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/22/工作中总结/">工作中总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/22/工作中总结/" class="archive-article-date">
+  	<time datetime="2019-11-22T03:56:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+<!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">工作 问题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/22/工作中总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-node版本管理nvm的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/16/node版本管理nvm的使用/">node版本管理nvm的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/16/node版本管理nvm的使用/" class="archive-article-date">
+  	<time datetime="2019-11-16T05:05:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.卸载已经安装的node(如果已经安装)，可以使用node自带的uninstall ,也可以使用其它软件管理工具卸载</p>
+<p>2.下载nvm并安装</p>
+<p>卸载完后下载nvm安装 (推荐使用nvm-setup.zip)：</p>
+<p><a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">https://github.com/coreybutler/nvm-windows/releases</a></p>
+<p>解压nvm-setup.zip，点击</p>
+<p>注：安装时nvm地址可改，nodejs安装地址不可改，否者会出问题（目前版本是这样）</p>
+<p>mvn命令<br> 1、查看本地安装的所有版本；有可选参数available，显示所有可下载的版本。<br>nvm list [available]<br> 2、安装，命令中的版本号可自定义，具体参考命令1查询出来的列表<br>nvm install 11.13.0<br> 3、使用特定版本<br>nvm use 11.13.0<br> 4、卸载<br>nvm uninstall 11.13.0<br>5、命令提示<br>nvm arch ：显示node是运行在32位还是64位。<br>nvm install <version> [arch] ：安装node， version是特定版本也可以是最新稳定版本latest。可选参数arch指定安装32位还是64位版本，默认是系统位数。可以添加–insecure绕过远程服务器的SSL。<br>nvm list [available] ：显示已安装的列表。可选参数available，显示可安装的所有版本。list可简化为ls。<br>nvm on ：开启node.js版本管理。<br>nvm off ：关闭node.js版本管理。<br>nvm proxy [url] ：设置下载代理。不加可选参数url，显示当前代理。将url设置为none则移除代理。<br>nvm node_mirror [url] ：设置node镜像。默认是<a href="https://nodejs.org/dist/。如果不写url，则使用默认url。设置后可至安装目录settings.txt文件查看，也可直接在该文件操作。" target="_blank" rel="noopener">https://nodejs.org/dist/。如果不写url，则使用默认url。设置后可至安装目录settings.txt文件查看，也可直接在该文件操作。</a><br>nvm npm_mirror [url] ：设置npm镜像。<a href="https://github.com/npm/cli/archive/。如果不写url，则使用默认url。设置后可至安装目录settings.txt文件查看，也可直接在该文件操作。" target="_blank" rel="noopener">https://github.com/npm/cli/archive/。如果不写url，则使用默认url。设置后可至安装目录settings.txt文件查看，也可直接在该文件操作。</a><br>nvm uninstall <version> ：卸载指定版本node。<br>nvm use [version] [arch] ：使用制定版本node。可指定32/64位。<br>nvm root [path] ：设置存储不同版本node的目录。如果未设置，默认使用当前目录。<br>nvm version ：显示nvm版本。version可简化为v。</version></version></p>
+
+      
+<!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/16/node版本管理nvm的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JS知识点总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -752,15 +908,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">小程序 微信</a>
+                <a href="javascript:void(0)" class="js-tag color2">JS javascript 总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">工作 问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,7 +928,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JS javascript 总结</a>
+                <a href="javascript:void(0)" class="js-tag color2">小程序 微信</a>
               </li>
             
             <div class="clearfix"></div>
